@@ -1,0 +1,12 @@
+{
+  "width": 20,
+  "height": 20,
+  "jungleRatio": 5,
+  "moveEnergy": 2,
+  "startEnergy": 50,
+  "plantEnergy": 20,
+  "delay": 100,
+  "noOfAnim": 20,
+  "noOfGrass": 30
+
+}
