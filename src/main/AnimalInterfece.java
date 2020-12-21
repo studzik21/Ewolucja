@@ -41,7 +41,7 @@ public class AnimalInterfece extends JFrame implements ActionListener {
         add(genomPanel);
         add(successorPanel);
         add(childrenPanel);
-        if(animal.dateOfDeath!=0) add(deadPanel);
+        if(animal.getDateOfDeath()!=0) add(deadPanel);
         setLayout(new GridLayout(5,1));
 
         setSize(300,400);
@@ -51,11 +51,11 @@ public class AnimalInterfece extends JFrame implements ActionListener {
     }
 
     public void update(){
-        deadLabel.setText(String.valueOf(animal.dateOfDeath));
+        deadLabel.setText(String.valueOf(animal.getDateOfDeath()));
         succesorsLabel.setText(String.valueOf(animal.successors()));
         genLabel.setText(animal.genes.getGenesString());
         childrenLabel.setText(String.valueOf(animal.getChildrensSize()));
-        if(animal.dateOfDeath!=0) add(deadPanel);
+        if(animal.getDateOfDeath()!=0) add(deadPanel);
 
     }
 

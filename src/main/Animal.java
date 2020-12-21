@@ -1,11 +1,8 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Vector;
 
-import static java.lang.Math.abs;
 
 public class Animal  {
     private Vector2d position;
@@ -13,14 +10,15 @@ public class Animal  {
     private int energy;
     public Genes genes;
     private int old;
-    public int dateOfDeath;
+    private int dateOfDeath;
     private RectangularMap map;
     private List<IPositionChangeObserver> observers= new ArrayList<>();
     private List<Animal> childerns=new ArrayList<>();
     public int followed =0;
-    Random generator = new Random();
     private AnimalInterfece animalInterfece;
     private boolean haveDominateGen=false;
+
+    Random generator = new Random();
 
 
 
@@ -54,15 +52,12 @@ public class Animal  {
     }
 
 
-    public double getEnergy() {
-        return energy;
-    }
 
     public void changeEnergy( int val){
         this.energy=this.energy + val;
-
-
     }
+
+
     public void removeObservers(IPositionChangeObserver observer) {
         this.observers.remove(observer);
     }
@@ -73,6 +68,8 @@ public class Animal  {
     }
 
 
+
+
     public void positionChanged(Vector2d oldPosition,Vector2d newPosition){
         for (IPositionChangeObserver observer: observers){
             observer.positionChanged(oldPosition,newPosition,this);
@@ -81,18 +78,6 @@ public class Animal  {
     }
 
 
-    public Vector2d getPosition() {
-        return position;
-    }
-
-//    @Override
-//    public String toString() {
-//        return  orientation.toString();
-//    }
-
-    public int amountOfChildern(){
-        return this.childerns.size();
-    }
 
 
     @Override
@@ -130,9 +115,6 @@ public class Animal  {
         return animal;
 
     }
-    public int getOld(){
-        return old;
-    }
 
     public void setDateOfDeath(int date){
         dateOfDeath=date;
@@ -151,26 +133,20 @@ public class Animal  {
 
     }
 
-    public int getChildrensSize(){
-        return childerns.size();
-    }
 
     public void display(){
         this.animalInterfece.update();
         animalInterfece.setVisible(true);
 
-
     }
 
 
 
-    public void setHaveDominateGen(boolean haveDominateGen) {
+    public void setHaveDominatGen(boolean haveDominateGen) {
         this.haveDominateGen = haveDominateGen;
     }
 
-    public int[] getNumberOfGenes(){
-        return this.genes.getNumOfEveryGene();
-    }
+
 
     public Color getColor(){
         if(haveDominateGen) return Color.RED;
@@ -179,10 +155,29 @@ public class Animal  {
         if(energy <0.75*map.startEnergy) return new Color(88, 50, 44);
         else return new Color(74, 42, 37);
 
-
-
     }
 
+
+    public int getDateOfDeath() {
+        return dateOfDeath;
+    }
+    public int amountOfChildern(){
+        return this.childerns.size();
+    }
+
+    public double getEnergy() { return energy; }
+
+    public Vector2d getPosition() {
+        return position;
+    }
+
+    public int getOld(){
+        return old;
+    }
+
+    public int getChildrensSize(){
+        return childerns.size();
+    }
 }
 
 

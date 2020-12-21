@@ -24,13 +24,6 @@ public class Statistic {
         return map.getAnimalSize();
     }
 
-    public float avgEnergy(){
-        float avg=0;
-        for( Animal animal: map.getAnimalList())
-            avg+=animal.getEnergy();
-        return avg/numberOfLivingAnimals();
-
-    }
 
     public float avgAmountOfChildren(){
         float avg=0;
@@ -93,10 +86,19 @@ public class Statistic {
             }
             if (mostCommonGen != null)
                 for (Animal animal : map.getAnimalList()) {
-                    if (mostCommonGen.equals(animal.genes.getGenesString())) animal.setHaveDominateGen(true);
-                    else animal.setHaveDominateGen(false);
+                    if (mostCommonGen.equals(animal.genes.getGenesString())) animal.setHaveDominatGen(true);
+                    else animal.setHaveDominatGen(false);
                 }
         }
+    }
+
+    public float getAvgEnergy(){
+        float tmp=0;
+        for(Animal animal: map.getAnimalList())
+            tmp+=animal.getEnergy();
+
+        return tmp/this.map.getAnimalSize();
+
     }
 
 

@@ -45,6 +45,7 @@ public class FieldPanel {
         simulationWindowMenuBar.add(stop);
         simulationWindowMenuBar.add(save);
 
+
         
 
         frame.setJMenuBar(simulationWindowMenuBar);
@@ -61,6 +62,7 @@ public class FieldPanel {
         plotRender.updateLabels();
         plotRender.repaint();
         mapVisualizer.repaint();
+
 
 
     }

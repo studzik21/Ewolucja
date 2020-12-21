@@ -24,6 +24,7 @@ public class PlotRender extends JPanel {
         private JLabel avgNoOfChildren;
         private JLabel days;
         private JLabel mostCommonGen;
+        private JLabel avgEnergy;
 
         @Override
         public Dimension getPreferredSize(){
@@ -33,13 +34,14 @@ public class PlotRender extends JPanel {
 
         StatisticLabel(){
 
-            setSize(new Dimension(300,600));
+            setSize(new Dimension(300,262));
             this.currentNoOfAnimals=new JLabel();
             this.currentNoOfGrass=new JLabel();
             this.avgLifeTime=new JLabel();
             this.avgNoOfChildren=new JLabel();
             this.days=new JLabel();
             this.mostCommonGen= new JLabel();
+            this.avgEnergy= new JLabel();
 
 
             this.add(days);
@@ -47,7 +49,9 @@ public class PlotRender extends JPanel {
             this.add(avgNoOfChildren);
             this.add(currentNoOfAnimals);
             this.add(currentNoOfGrass);
+            this.add(avgEnergy);
             this.add(mostCommonGen);
+
 
             setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 
@@ -59,7 +63,8 @@ public class PlotRender extends JPanel {
             this.avgNoOfChildren.setText("Average number of children: "+ statistic.avgAmountOfChildren());
             this.avgLifeTime.setText("Average LifeTime: "+ statistic.getAvgLifeTime());
             this.days.setText("Day: "+ statistic.getDays());
-            this.mostCommonGen.setText("MostCommonGen: "+statistic.getMostCommonGen());
+            this.mostCommonGen.setText("Dominate: "+statistic.getMostCommonGen());
+            this.avgEnergy.setText("Average energy: "+statistic.getAvgEnergy());
 
         }
 
